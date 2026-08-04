@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Enables dark:bg-… / dark:text-… when <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Semantic tokens — light on :root, dark when .dark is on <html>.
+  bg-primary etc. swap automatically; use dark: for one-off overrides.
+*/
+:root {
+  --background: #f4f2ee;
+  --foreground: #191919;
+  --card: #ffffff;
+  --card-foreground: #191919;
+  --muted: #eef3f8;
+  --muted-foreground: #666666;
+  --border: #e0e0e0;
+  --primary: #0a66c2;
+  --primary-foreground: #ffffff;
+  --secondary: #56687a;
+  --secondary-foreground: #ffffff;
+  --success: #057642;
+  --success-foreground: #ffffff;
+  --warning: #915907;
+  --warning-foreground: #ffffff;
+  --danger: #cc1016;
+  --danger-foreground: #ffffff;
+  --ring: #0a66c2;
+}
+
+.dark {
+  --background: #1b1f23;
+  --foreground: #f5f5f5;
+  --card: #2a2e33;
+  --card-foreground: #f5f5f5;
+  --muted: #38434f;
+  --muted-foreground: #b0b0b0;
+  --border: #38434f;
+  --primary: #70b5f9;
+  --primary-foreground: #08233d;
+  --secondary: #a8b7c7;
+  --secondary-foreground: #1b1f23;
+  --success: #5fbb7b;
+  --success-foreground: #0a1f12;
+  --warning: #e7a23b;
+  --warning-foreground: #1f1405;
+  --danger: #f87171;
+  --danger-foreground: #2a0a0c;
+  --ring: #70b5f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-ring: var(--ring);
+}
+
+/* react-day-picker — map to app tokens */
+.rdp-root {
+  --rdp-accent-color: var(--primary);
+  --rdp-accent-background-color: color-mix(in oklab, var(--primary) 18%, transparent);
+  --rdp-range_start-date-background-color: var(--primary);
+  --rdp-range_end-date-background-color: var(--primary);
+  --rdp-range_middle-background-color: color-mix(in oklab, var(--primary) 14%, transparent);
+  --rdp-today-color: var(--primary);
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
